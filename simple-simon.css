@@ -1,13 +1,22 @@
 body{
     background-color: #3e3e3e;
     text-align:center;
+    /*margin-top: 30px;*/
 }
 
 .circle{
     width: 200px;
     height: 200px;
     display: inline-block;
+    cursor: pointer;
 }
+
+.circle:hover{
+    /*border: 1px solid teal;*/
+    box-shadow: 0px 0px 30px white;
+    box-sizing: border-box;
+}
+
 .bottom-left-circle{
     background-color: orangered;
     border-bottom-left-radius: 200px;
