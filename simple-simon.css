@@ -1,3 +1,7 @@
-.circle{
+.bottom-left-circle{
+    background-color: orangered;
+    border-bottom-left-radius: 200px;
+    width: 100px;
+    height: 100px;
+    }
 
-}
