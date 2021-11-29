@@ -3,10 +3,19 @@ var topRight = document.querySelector(".top-right-circle");
 var bottomLeft = document.querySelector(".bottom-left-circle");
 var bottomRight = document.querySelector(".bottom-left-circle")
 
-var sequence = [topLeft, topRight, bottomLeft, bottomRight];
+var getRandomCircle = () => {
+    var circles = [topLeft, topRight, bottomLeft, bottomRight];
+    return circles[parseInt(Math.random() * circles.length)];
+};
+
+var sequence = [getRandomCircle(),
+getRandomCircle(),
+getRandomCircle(),
+getRandomCircle()
+];
 
 var flash = circle => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         circle.className += " active";
         setTimeout(() => {
                 circle.className = circle.className.replace(" active", "");
@@ -15,3 +24,9 @@ var flash = circle => {
         });
     };
 
+var main = async () => {
+    for(var circle of sequence) {
+        await flash(circle);
+    }
+};
+main();
