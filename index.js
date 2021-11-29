@@ -1,26 +1,27 @@
 var topLeft = document.querySelector(".top-left-circle");
 var topRight = document.querySelector(".top-right-circle");
 var bottomLeft = document.querySelector(".bottom-left-circle");
-var bottomRight = document.querySelector(".bottom-left-circle")
+var bottomRight = document.querySelector(".bottom-right-circle");
 
-var getRandomCircle = () => {
+var getRandomCircles = () => {
     var circles = [topLeft, topRight, bottomLeft, bottomRight];
-    return circles[parseInt(Math.random() * circles.length)];
+    return circles[Math.floor(Math.random() * circles.length)];
 };
 
-var sequence = [getRandomCircle(),
-getRandomCircle(),
-getRandomCircle(),
-getRandomCircle()
+
+var sequence = [getRandomCircles(),
+getRandomCircles(),
+getRandomCircles(),
+getRandomCircles()
 ];
 
-var flash = circle => {
-    return new Promise((resolve) => {
+var flash = (circle) => {
+    return new Promise((resolve, reject) =>{
         circle.className += " active";
         setTimeout(() => {
-                circle.className = circle.className.replace(" active", "");
+                circle.className = circle.className.replace(" active", " ");
                 resolve();
-            }, 1000);
+            }, 500);
         });
     };
 
@@ -30,3 +31,4 @@ var main = async () => {
     }
 };
 main();
+
