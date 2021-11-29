@@ -22,6 +22,7 @@ var flash = (circle) => {
     };
 
     let canClick = false;
+    // check if you clicked on the right circle
 var circleClicked = circleClicked => {
     if(!canClick) return;
     var expectedCircle = sequenceToGuess.shift();
@@ -30,6 +31,7 @@ var circleClicked = circleClicked => {
             // start new round
             sequence.push(getRandomCircles());
             sequenceToGuess = [sequence];
+            startFlashing();
         }
     } else {
        // to end the game
@@ -37,7 +39,7 @@ var circleClicked = circleClicked => {
     }
 }
 
-var startFlashing =() => {
+var startFlashing = async() => {
     canClick = false;
     for (var circle of sequence) {
         await flash(circle);
