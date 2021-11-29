@@ -28,6 +28,8 @@ var circleClicked = circleClicked => {
     if (expectedCircle === circleClicked) {
         if(sequenceToGuess.length === 0) {
             // start new round
+            sequence.push(getRandomCircles());
+            sequenceToGuess = [sequence];
         }
     } else {
        // to end the game
@@ -35,11 +37,20 @@ var circleClicked = circleClicked => {
     }
 }
 
-var main = async () => {
-    for(var circle of sequence) {
+var startFlashing =() => {
+    canClick = false;
+    for (var circle of sequence) {
         await flash(circle);
     }
-    canClick =true;
-};
-main();
+    canClick = true;
+}
+startFlashing();
+
+// var main = async () => {
+//     for(var circle of sequence) {
+//         await flash(circle);
+//     }
+//     canClick =true;
+// };
+// main();
 
