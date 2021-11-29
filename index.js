@@ -30,7 +30,7 @@ var circleClicked = circleClicked => {
         if(sequenceToGuess.length === 0) {
             // start new round
             sequence.push(getRandomCircles());
-            sequenceToGuess = [sequence];
+            sequenceToGuess = [...sequence];
             startFlashing();
         }
     } else {
