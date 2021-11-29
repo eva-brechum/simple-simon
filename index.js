@@ -25,10 +25,17 @@ var flash = (circle) => {
         });
     };
 
+    let canClick = false;
+var circleClicked = circle => {
+    if(!canClick) return;
+    console.log(circle);
+}
+
 var main = async () => {
     for(var circle of sequence) {
         await flash(circle);
     }
+    canClick =true;
 };
 main();
 
