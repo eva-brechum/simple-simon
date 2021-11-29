@@ -9,11 +9,7 @@ var getRandomCircles = () => {
 };
 
 
-var sequence = [getRandomCircles(),
-getRandomCircles(),
-getRandomCircles(),
-getRandomCircles()
-];
+var sequence = [getRandomCircles()];
 
 var flash = (circle) => {
     return new Promise((resolve, reject) =>{
@@ -26,9 +22,17 @@ var flash = (circle) => {
     };
 
     let canClick = false;
-var circleClicked = circle => {
+var circleClicked = circleClicked => {
     if(!canClick) return;
-    console.log(circle);
+    var expectedCircle = sequenceToGuess.shift();
+    if (expectedCircle === circleClicked) {
+        if(sequenceToGuess.length === 0) {
+            // start new round
+        }
+    } else {
+       // to end the game
+       alert ("TRY AGAIN!")
+    }
 }
 
 var main = async () => {
