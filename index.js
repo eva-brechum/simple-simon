@@ -30,12 +30,12 @@ var circleClicked = circleClicked => {
         if(sequenceToGuess.length === 0) {
             // start new round
             sequence.push(getRandomCircles());
-            sequenceToGuess = [...sequence];
+            sequenceToGuess = [...sequence] ;
             startFlashing();
         }
     } else {
        // to end the game
-       alert ("TRY AGAIN!")
+       alert ("TRY AGAIN!");
     }
 }
 
